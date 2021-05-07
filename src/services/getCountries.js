@@ -1,4 +1,4 @@
-const url = 'https://restcountries.eu/rest/v2/all?fields=name;population;region;flag;capital'
+const url = 'https://restcountries.eu/rest/v2/all?fields=name;population;region;flag;capital;callingCodes'
 
 
 export default function getCountries(){
@@ -14,7 +14,9 @@ export default function getCountries(){
             flag: country.flag,
             capital: country.capital,
             region: country.region,
-            population: country.population}
+            population: country.population,
+            callingcode: country.callingCodes
+        }
         })
 
         

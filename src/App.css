@@ -1,35 +1,124 @@
-img{
-
-  width:100px ;
-  height:100px ;
+.backContent{
+  margin:0;
+  padding:0;
+ 
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.contenedor{
+  display: grid;
+  
+  width: 75%;
+  margin: auto;
+  margin-top: 40px;
+  place-items: center;
+  background: #eee;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+  padding: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.contenedor-imagenes{
+  margin-top:30px ;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+}
+input{
+  font-size: 16px;
+  border: none;
+  padding: 4px 16px;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.selectOption{
+  -moz-appearance: none; 
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background: #fff;
+  border: 0;
+  border-left: 1px solid #ccc;
+  border-radius: 0;
+  line-height: 1.3;
+  margin: 0;
+  max-width: 100%;
+  padding-left: 8px;
+  background-image: url("https://img.icons8.com/fluent-systems-filled/48/000000/low-priority.png");
+  background-repeat: no-repeat, repeat;
+  background-position: right .50em top 50%;
+  background-size: .90em auto;  
+ 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.flag{
+ 
+  background: #fefae0 ;
+  width:200px ;
+  height: 300px;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.3) ;
+  
+
 }
+.contentSearch{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.flag p {
+  text-align: left;
+}
+
+.flag h2{
+  font-size: 16px;
+  font-weight: 900;
+}
+.flag span{
+  display: inline;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.flag img{
+
+  max-width:180px ;
+  max-height:100px ;
+  object-fit: scale-down;
+  border: 1px solid rgba(0,0,0,.3) ;
+  margin: auto;
+  
+}
+
+
+
+@media all and (max-width: 650px){
+
+  .contenedor{
+    
+    
+    width: 85%;
+ 
+  }
+ 
+  .contentSearch{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .selectOption{
+    margin-top: 10px;
+  }
+ 
+
+
+}
+

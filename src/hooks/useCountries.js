@@ -1,10 +1,13 @@
 import getCountries from '../services/getCountries'
-import  {useState, useEffect } from "react";
+import  {useState, useEffect, useContext } from "react";
+import ContextCountries from '../context/CountryContext'
+
+
 
 export default function useCountries(){
 
-    const [countries, setCountries] = useState(null)
-   
+    const {countries, setCountries} = useContext(ContextCountries)
+    
     const [loading, setLoading] = useState(true)
     
 
@@ -25,7 +28,8 @@ export default function useCountries(){
     
 
     return({countries,
-        isloading:loading
+        isloading:loading,
+       
     })
 
 }

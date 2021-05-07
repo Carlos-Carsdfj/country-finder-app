@@ -3,9 +3,9 @@ import React, {useState} from 'react'
 const Context = React.createContext([])
 
 export  function CountryContext ({children}){
-    const [countries, setCouintries] = useState([])
-    
-    return <Context.Provider value={{gifs, setCouintries}}>
+    const [countries, setCountries] = useState([])
+
+    return <Context.Provider value={{countries, setCountries }}>
         {children}
     </Context.Provider>
 
