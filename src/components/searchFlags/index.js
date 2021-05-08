@@ -1,7 +1,8 @@
 import  { useContext } from "react";
-import Context from '../context/SearchContext'
+import Context from '../../context/SearchContext'
 
-export default function searchFlags(){
+
+export default function SearchFlags(){
 
 
     const {region, setRegion,search, setSearch } = useContext(Context)

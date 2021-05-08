@@ -1,15 +1,15 @@
 import Flag from '../Flag/index'
 import useCountries from '../../hooks/useCountries'
-import { useState } from 'react'
-
+import { useContext } from 'react'
+import Context from '../../context/SearchContext'
 import './FlagGroup.css'
 import  '../../App.css';
 
-export default function FlagGroup({region='All',search=''}){
+export default function FlagGroup(){
 
     const {countries, isloading} = useCountries()
 
-   
+    const {region,search } = useContext(Context)
  
   
     var  CountryFilter = countries;

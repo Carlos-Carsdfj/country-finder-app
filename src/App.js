@@ -1,65 +1,57 @@
-import { useState} from 'react'
+
 
 import {CountryContext} from './context/CountryContext'
 import {SearchContext} from './context/SearchContext'
 import FlagGroup from './components/FlagGroup'
-
+import SearchFlags from './components/SearchFlags'
 import './App.css'
+import {MyGlobalStyle} from './styles/GlobalStayle'
+import img from './y-so-serious-white.png'
+import img2 from './y-so-serious.png'
+import { useState } from 'react'
 
 function App() {
   
-
-  const [search, setSearch] = useState("")
-  const [region, setRegion] = useState('All')
-  
-  
-
-   
-  const handleSelect = (ev)=>{
-    setRegion(ev.target.value)
+  const [mode, setMode] = useState(false)
+  const mode1 ={
+    primary:'#eee',
+  secundary:'#fff',
+  borde:'#ccc',
+  card:'#fefae0',
+  text:'black'
   }
-
-  const  handlerSearch = (ev)=>{
-
-
-    setSearch(ev.target.value)
-    
-    
-
+  const mode2 ={
+    primary:'#0b090a',
+  secundary:'#e5e5e5',
+  borde:'#e5e5e5',
+  card:'#161a1dee',
+  text:'#fff'
   }
+  const handlerMode=()=>{
 
+
+    setMode(pre=>!pre)
+  }
   return (
     <>
+    <MyGlobalStyle  img={mode?img2:img} colors={mode?mode2:mode1}></MyGlobalStyle>
     <SearchContext>
+    <button className="buttonDark"onClick={handlerMode}>{mode?" mode dark":"mode light"}</button>
     <CountryContext>
     <div className="backContent">
     <div className="contenedor">
+
     <h1>Country Finder</h1>
     
-      <div className="contentSearch">
-      <input type="text" placeholder="search by name" value={search} onChange={handlerSearch}></input>
-      
-      <select value={region} onChange={handleSelect} className="selectOption" >
-      <option className='option' value="All">All</option>
-                          <option className='option' value="Africa">Africa</option>
-                          <option className='option' value="Americas">Americas</option>
-                          <option className='option' value="Asia">Asia</option>
-                          <option className='option' value="Europe">Europe</option>
-                          <option className='option' value="Oceania">Oceania</option>
-                          <option className='option' value="Polar">Polar</option>
-                          <option className='option' value="">Other</option>
-          
-        
-      </select>
-      
-      </div>
+      <SearchFlags></SearchFlags>
       <div className="contenedor-imagenes">
-    <FlagGroup search={search} region={region} />
-    </div>
+        <FlagGroup />
+      </div>
     </div>
     </div>
     </CountryContext>
     </SearchContext>
+    
     </>
   );
 }
