@@ -2,9 +2,9 @@ import Flag from '../Flag/index'
 import useCountries from '../../hooks/useCountries'
 import { useContext } from 'react'
 import Context from '../../context/SearchContext'
+import Spinner from '../Spinner'
 import './FlagGroup.css'
 import  '../../App.css';
-
 export default function FlagGroup(){
 
     const {countries, isloading} = useCountries()
@@ -43,7 +43,7 @@ export default function FlagGroup(){
 
     {
         
-         isloading ? <p>isLoading</p>:
+         isloading ? <Spinner></Spinner>:
 
         CountryFilter.map((country,index)=>{
                     return<Flag key={index} country={country} />})

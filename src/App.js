@@ -3,16 +3,29 @@
 import {CountryContext} from './context/CountryContext'
 import {SearchContext} from './context/SearchContext'
 import FlagGroup from './components/FlagGroup'
-import SearchFlags from './components/SearchFlags'
+import SearchCountries from './components/SearchCountries'
 import './App.css'
 import {MyGlobalStyle} from './styles/GlobalStayle'
 import img from './y-so-serious-white.png'
 import img2 from './y-so-serious.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
   
   const [mode, setMode] = useState(false)
+
+  useEffect(() => {
+    
+    if(window.localStorage.mode){
+
+      const isMode = window.localStorage.mode == 1 ? true : false
+      setMode(isMode) 
+    }
+    
+
+    
+  }, [])
+
   const mode1 ={
     primary:'#eee',
   secundary:'#fff',
@@ -30,7 +43,15 @@ function App() {
   const handlerMode=()=>{
 
 
+    if(mode){
+      window.localStorage.mode = 0 
+    }else{
+      window.localStorage.mode = 1
+    }
+    
     setMode(pre=>!pre)
+    
+
   }
   return (
     <>
@@ -43,7 +64,7 @@ function App() {
 
     <h1>Country Finder</h1>
     
-      <SearchFlags></SearchFlags>
+      <SearchCountries></SearchCountries>
       <div className="contenedor-imagenes">
         <FlagGroup />
       </div>
